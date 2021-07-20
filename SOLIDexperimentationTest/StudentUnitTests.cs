@@ -18,12 +18,18 @@ namespace SOLIDexperimentationTest
             var subjectD = 100;
             //mock implementation
             var studentMarksBasedOnSubjectsMock = new Mock<IStudentMarksBasedOnSubjects>();
-            studentMarksBasedOnSubjectsMock.Setup(m => m.CalculateAverageMarks()).Returns(100);
+            studentMarksBasedOnSubjectsMock.SetupGet(m => m.SubjectA).Returns(subjectA);
+            studentMarksBasedOnSubjectsMock.SetupGet(m => m.SubjectB).Returns(subjectB);
+            studentMarksBasedOnSubjectsMock.SetupGet(m => m.SubjectC).Returns(subjectC);
+            studentMarksBasedOnSubjectsMock.SetupGet(m => m.SubjectD).Returns(subjectD);
+            studentMarksBasedOnSubjectsMock.Setup(m => m.CalculateAverageMarks()).Returns((studentMarksBasedOnSubjectsMock.Object.SubjectA+ studentMarksBasedOnSubjectsMock.Object.SubjectB+ studentMarksBasedOnSubjectsMock.Object.SubjectC+ studentMarksBasedOnSubjectsMock.Object.SubjectD)/400);
+            studentMarksBasedOnSubjectsMock.Setup(m => m.StudentPrecentage()).Returns(studentMarksBasedOnSubjectsMock.Object.CalculateAverageMarks()*100);
             var studentFeesMock = new Mock<IStudentFees>();
             //Act
             Student testSubject = new Student(studentMarksBasedOnSubjectsMock.Object, studentFeesMock.Object);
+            var result = studentMarksBasedOnSubjectsMock.Object.StudentPrecentage();
             //Assert
-            Assert.AreEqual(100, testSubject.GetMarks(subjectA, subjectB, subjectC,subjectD));
+            Assert.AreEqual(100, result);
         }
 
         //Adding a unit test for 80 percent mark
@@ -37,12 +43,18 @@ namespace SOLIDexperimentationTest
             var subjectD = 100;
             //mock implementation
             var studentMarksBasedOnSubjectsMock = new Mock<IStudentMarksBasedOnSubjects>();
-            studentMarksBasedOnSubjectsMock.Setup(m => m.CalculateAverageMarks()).Returns(80);
+            studentMarksBasedOnSubjectsMock.SetupGet(m => m.SubjectA).Returns(subjectA);
+            studentMarksBasedOnSubjectsMock.SetupGet(m => m.SubjectB).Returns(subjectB);
+            studentMarksBasedOnSubjectsMock.SetupGet(m => m.SubjectC).Returns(subjectC);
+            studentMarksBasedOnSubjectsMock.SetupGet(m => m.SubjectD).Returns(subjectD);
+            studentMarksBasedOnSubjectsMock.Setup(m => m.CalculateAverageMarks()).Returns((studentMarksBasedOnSubjectsMock.Object.SubjectA + studentMarksBasedOnSubjectsMock.Object.SubjectB + studentMarksBasedOnSubjectsMock.Object.SubjectC + studentMarksBasedOnSubjectsMock.Object.SubjectD) / 400);
+            studentMarksBasedOnSubjectsMock.Setup(m => m.StudentPrecentage()).Returns(studentMarksBasedOnSubjectsMock.Object.CalculateAverageMarks() * 100);
             var studentFeesMock = new Mock<IStudentFees>();
             //Act
             Student testSubject = new Student(studentMarksBasedOnSubjectsMock.Object, studentFeesMock.Object);
+            var result = studentMarksBasedOnSubjectsMock.Object.StudentPrecentage();
             //Assert
-            Assert.AreEqual(80, testSubject.GetMarks(subjectA, subjectB, subjectC,subjectD));
+            Assert.AreEqual(92.5, result);
         }
     }
 }
