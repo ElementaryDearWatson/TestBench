@@ -1,3 +1,4 @@
 ! Adding ignoring folders into the Git repo
 SOLIDexperimentation/obj
 SOLIDexperimentation/bin
+SOLIDexperimentation/.vs
