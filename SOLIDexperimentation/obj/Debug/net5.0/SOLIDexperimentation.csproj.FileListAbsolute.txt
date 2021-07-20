@@ -1,0 +1,16 @@
+C:\Develop\Solid Principles\SOLIDexperimentation\bin\Debug\net5.0\SOLIDexperimentation.exe
+C:\Develop\Solid Principles\SOLIDexperimentation\bin\Debug\net5.0\SOLIDexperimentation.deps.json
+C:\Develop\Solid Principles\SOLIDexperimentation\bin\Debug\net5.0\SOLIDexperimentation.runtimeconfig.json
+C:\Develop\Solid Principles\SOLIDexperimentation\bin\Debug\net5.0\SOLIDexperimentation.runtimeconfig.dev.json
+C:\Develop\Solid Principles\SOLIDexperimentation\bin\Debug\net5.0\SOLIDexperimentation.dll
+C:\Develop\Solid Principles\SOLIDexperimentation\bin\Debug\net5.0\ref\SOLIDexperimentation.dll
+C:\Develop\Solid Principles\SOLIDexperimentation\bin\Debug\net5.0\SOLIDexperimentation.pdb
+C:\Develop\Solid Principles\SOLIDexperimentation\obj\Debug\net5.0\SOLIDexperimentation.csproj.AssemblyReference.cache
+C:\Develop\Solid Principles\SOLIDexperimentation\obj\Debug\net5.0\SOLIDexperimentation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Develop\Solid Principles\SOLIDexperimentation\obj\Debug\net5.0\SOLIDexperimentation.AssemblyInfoInputs.cache
+C:\Develop\Solid Principles\SOLIDexperimentation\obj\Debug\net5.0\SOLIDexperimentation.AssemblyInfo.cs
+C:\Develop\Solid Principles\SOLIDexperimentation\obj\Debug\net5.0\SOLIDexperimentation.csproj.CoreCompileInputs.cache
+C:\Develop\Solid Principles\SOLIDexperimentation\obj\Debug\net5.0\SOLIDexperimentation.dll
+C:\Develop\Solid Principles\SOLIDexperimentation\obj\Debug\net5.0\ref\SOLIDexperimentation.dll
+C:\Develop\Solid Principles\SOLIDexperimentation\obj\Debug\net5.0\SOLIDexperimentation.pdb
+C:\Develop\Solid Principles\SOLIDexperimentation\obj\Debug\net5.0\SOLIDexperimentation.genruntimeconfig.cache
