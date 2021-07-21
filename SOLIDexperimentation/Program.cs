@@ -22,8 +22,9 @@ namespace SOLIDexperimentation
             Student newEntry = new Student(new StudentMarksCalculator(), new StudentFeeCalculator());
             newEntry.Name = name;
             newEntry.ID = Id;
-            Console.WriteLine("The percentage of Student: {0} is {1}", name, newEntry.GetPercentage(subjectA,subjectB,subjectC,subjectD));
-            //Console.WriteLine("The fee for the ")
+            var studentPercentage = newEntry.GetPercentage(subjectA, subjectB, subjectC, subjectD);
+            Console.WriteLine("The percentage of Student: {0} is {1}", name, studentPercentage);
+            Console.WriteLine("The fee for the student {0} is {1}", name, newEntry.GetTution(studentPercentage));
         }
     }
 }

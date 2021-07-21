@@ -7,7 +7,7 @@ namespace SOLIDexperimentationTest
     [TestClass]
     public class StudentUnitTests
     {
-        //Adding a unit test for 100 percent mark
+        //unit test for 100 percent mark
         [TestMethod]
         public void Student_With_100_Marks_In_All_Subjects()
         {
@@ -22,8 +22,8 @@ namespace SOLIDexperimentationTest
             studentMarksBasedOnSubjectsMock.SetupGet(m => m.SubjectB).Returns(subjectB);
             studentMarksBasedOnSubjectsMock.SetupGet(m => m.SubjectC).Returns(subjectC);
             studentMarksBasedOnSubjectsMock.SetupGet(m => m.SubjectD).Returns(subjectD);
-            studentMarksBasedOnSubjectsMock.Setup(m => m.CalculateAverageMarks()).Returns((studentMarksBasedOnSubjectsMock.Object.SubjectA+ studentMarksBasedOnSubjectsMock.Object.SubjectB+ studentMarksBasedOnSubjectsMock.Object.SubjectC+ studentMarksBasedOnSubjectsMock.Object.SubjectD)/400);
-            studentMarksBasedOnSubjectsMock.Setup(m => m.StudentPrecentage()).Returns(studentMarksBasedOnSubjectsMock.Object.CalculateAverageMarks()*100);
+            studentMarksBasedOnSubjectsMock.Setup(m => m.CalculateAverageMarks()).Returns((studentMarksBasedOnSubjectsMock.Object.SubjectA + studentMarksBasedOnSubjectsMock.Object.SubjectB + studentMarksBasedOnSubjectsMock.Object.SubjectC + studentMarksBasedOnSubjectsMock.Object.SubjectD) / 400);
+            studentMarksBasedOnSubjectsMock.Setup(m => m.StudentPrecentage()).Returns(studentMarksBasedOnSubjectsMock.Object.CalculateAverageMarks() * 100);
             var studentFeesMock = new Mock<IStudentFees>();
             //Act
             Student testSubject = new Student(studentMarksBasedOnSubjectsMock.Object, studentFeesMock.Object);
@@ -32,7 +32,7 @@ namespace SOLIDexperimentationTest
             Assert.AreEqual(100, result);
         }
 
-        //Adding a unit test for 80 percent mark
+        //unit test for 80 percent mark
         [TestMethod]
         public void Student_With_Different_Marks_In_All_Subjects()
         {
@@ -55,6 +55,21 @@ namespace SOLIDexperimentationTest
             var result = studentMarksBasedOnSubjectsMock.Object.StudentPrecentage();
             //Assert
             Assert.AreEqual(92.5, result);
+        }
+
+        //Unit test for the default fee structure 
+        [TestMethod]
+        public void Student_with_no_scholarship()
+        {
+            //Arrange
+            var studentMarksBasedOnSubjectsMock = new Mock<IStudentMarksBasedOnSubjects>();
+            var studentFeesMock = new Mock<IStudentFees>();
+            studentFeesMock.Setup(m => m.AllFeesIncluded()).Returns(8750);
+            //Act
+            Student testSubject = new Student(studentMarksBasedOnSubjectsMock.Object, studentFeesMock.Object);
+            var result = studentFeesMock.Object.AllFeesIncluded();
+            //Assert
+            Assert.AreEqual(8750, result);
         }
     }
 }
