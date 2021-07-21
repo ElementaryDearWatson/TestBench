@@ -15,7 +15,7 @@
         float BasicTution { get; set; }
         float DormFee { get; set; }
         float CafeteriaFee { get; set; }
-        float AllFeesIncluded();
+        float AllFeesIncluded(double percentage);
 
     }
 }

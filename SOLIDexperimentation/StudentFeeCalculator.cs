@@ -6,13 +6,28 @@
         public float DormFee { get; set; } = 3000;
         public float CafeteriaFee { get; set; } = 2250;
 
-        public float AllFeesIncluded()
+        public float AllFeesIncluded(double percentage)
         {
-            return (BasicTution + DormFee + CafeteriaFee);
-        }
-        public static float FiftenPercentScholarshipIncludedFee()
-        {
-            return 0;
+            var defaultFeeStructure = (BasicTution + DormFee + CafeteriaFee);
+            if (percentage >= 75)
+            {
+                float temp = (float)(0.10 * defaultFeeStructure);
+                float result = defaultFeeStructure - temp;
+                return result;
+            }
+            else if (percentage >= 85)
+            {
+                float temp = (float)(0.15 * defaultFeeStructure);
+                float result = defaultFeeStructure - temp;
+                return result;
+            }
+            else if (percentage >= 95)
+            {
+                float temp = (float)(0.20 * defaultFeeStructure);
+                float result = defaultFeeStructure - temp;
+                return result;
+            }
+            return defaultFeeStructure;
         }
     }
 }
