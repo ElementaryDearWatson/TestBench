@@ -35,7 +35,7 @@ namespace SOLIDexperimentation
             return _studentMarksBasedOnSubjects.StudentPrecentage();
         }
 
-        public float GetTution(float percentage)
+        public float GetTution(double percentage)
         {
             return _studentFees.AllFeesIncluded(percentage);
         }

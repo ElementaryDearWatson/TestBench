@@ -64,10 +64,25 @@ namespace SOLIDexperimentationTest
             //Arrange
             var studentMarksBasedOnSubjectsMock = new Mock<IStudentMarksBasedOnSubjects>();
             var studentFeesMock = new Mock<IStudentFees>();
-            studentFeesMock.Setup(m => m.AllFeesIncluded()).Returns(8750);
+            studentFeesMock.Setup(m => m.AllFeesIncluded(100)).Returns(8750);
             //Act
             Student testSubject = new Student(studentMarksBasedOnSubjectsMock.Object, studentFeesMock.Object);
-            var result = studentFeesMock.Object.AllFeesIncluded();
+            var result = studentFeesMock.Object.AllFeesIncluded(100);
+            //Assert
+            Assert.AreEqual(8750, result);
+        }
+
+        //Unit test for the not default fee structure 
+        [TestMethod]
+        public void Student_with_15_percent_scholarship()
+        {
+            //Arrange
+            var studentMarksBasedOnSubjectsMock = new Mock<IStudentMarksBasedOnSubjects>();
+            var studentFeesMock = new Mock<IStudentFees>();
+            studentFeesMock.Setup(m => m.AllFeesIncluded(78)).Returns(7875);
+            //Act
+            Student testSubject = new Student(studentMarksBasedOnSubjectsMock.Object, studentFeesMock.Object);
+            var result = studentFeesMock.Object.AllFeesIncluded(78);
             //Assert
             Assert.AreEqual(8750, result);
         }

@@ -6,16 +6,10 @@
         public float DormFee { get; set; } = 3000;
         public float CafeteriaFee { get; set; } = 2250;
 
-        public float AllFeesIncluded(float percentage)
+        public float AllFeesIncluded(double percentage)
         {
             var defaultFeeStructure = (BasicTution + DormFee + CafeteriaFee);
-            if (percentage >= 65)
-            {
-                float temp = (float)(0.5 * defaultFeeStructure);
-                float result = defaultFeeStructure - temp;
-                return result;
-            }
-            else if (percentage >= 75)
+            if (percentage >= 75)
             {
                 float temp = (float)(0.10 * defaultFeeStructure);
                 float result = defaultFeeStructure - temp;
